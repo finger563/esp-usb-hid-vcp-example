@@ -91,9 +91,10 @@ enum
 enum {
     // Available USB Endpoints: 5 IN/OUT EPs and 1 IN EP
     EP_EMPTY = 0,
-    EPNUM_CDC_NOTIF,
-    EPNUM_CDC,
-    EPNUM_HID,
+    EPNUM_CDC_NOTIF = 0x81,
+    EPNUM_CDC_OUT = 0x02,
+    EPNUM_CDC_IN = 0x82,
+    EPNUM_HID = 0x83,
 };
 
 #define  CONFIG_TOTAL_LEN  (TUD_CONFIG_DESC_LEN + (1 * TUD_CDC_DESC_LEN) + (1 * TUD_HID_DESC_LEN))
@@ -102,9 +103,9 @@ static const uint8_t configuration_descriptor[] = {
   // Config number, interface count, string index, total length, attribute, power in mA
   TUD_CONFIG_DESCRIPTOR(1, ITF_NUM_TOTAL, 0, CONFIG_TOTAL_LEN, 0x00, 100),
   // Interface number, string index, EP notification address and size, EP data address (out, in) and size.
-  TUD_CDC_DESCRIPTOR(0, STRID_CDC_INTERFACE, EPNUM_CDC_NOTIF, 8, EPNUM_CDC, 0x80 | EPNUM_CDC, CFG_TUD_CDC_EP_BUFSIZE),
+  TUD_CDC_DESCRIPTOR(ITF_NUM_CDC, STRID_CDC_INTERFACE, EPNUM_CDC_NOTIF, 8, EPNUM_CDC_OUT, EPNUM_CDC_IN, CFG_TUD_CDC_EP_BUFSIZE),
   // Interface number, string index, boot protocol, report descriptor len, EP In address, size & polling interval
-  TUD_HID_DESCRIPTOR(2, STRID_HID_INTERFACE, HID_ITF_PROTOCOL_NONE, desc_hid_report_len, 0x80 | EPNUM_HID, CFG_TUD_HID_EP_BUFSIZE, 10),
+  TUD_HID_DESCRIPTOR(ITF_NUM_HID, STRID_HID_INTERFACE, HID_ITF_PROTOCOL_NONE, desc_hid_report_len, EPNUM_HID, CFG_TUD_HID_EP_BUFSIZE, 10),
 };
 
 // Invoked when received GET HID REPORT DESCRIPTOR
