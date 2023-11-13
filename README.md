@@ -3,6 +3,10 @@
 This is an example project for the ESP32s3 that uses the USB peripheral to
 implement both a USB HID device and a USB VCP device.
 
+![CleanShot 2023-11-09 at 14 43 03](https://github.com/finger563/esp-usb-hid-vcp-example/assets/213467/82710d71-57eb-43fc-a1c0-4e3a5b5f189e)
+
+![CleanShot 2023-11-09 at 16 10 48](https://github.com/finger563/esp-usb-hid-vcp-example/assets/213467/fba5b18a-72b3-4946-9d91-b09e3c440293)
+
 ## Cloning
 
 Since this repo contains a submodule, you need to make sure you clone it
@@ -35,3 +39,4 @@ See the Getting Started Guide for full steps to configure and use ESP-IDF to bui
 
 ## Output
 
+![CleanShot 2023-11-09 at 14 43 03](https://github.com/finger563/esp-usb-hid-vcp-example/assets/213467/82710d71-57eb-43fc-a1c0-4e3a5b5f189e)

@@ -4,21 +4,19 @@ cmake_minimum_required(VERSION 3.5)
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 
-# add the component directories that we want to use
 set(EXTRA_COMPONENT_DIRS
   "components/"
   "components/espp/components/"
+  "components/idf-extra-components/usb/esp_tinyusb"
 )
 
 set(
   COMPONENTS
-  # TODO: add additional esp-idf and espp components you want to use to the line below:
-  "main esptool_py logger task"
+  "main esptool_py logger task esp_tinyusb"
   CACHE STRING
   "List of components to include"
   )
 
-# TODO: update this with your project's name
-project(template)
+project(esp-usb-hid-vcp-example)
 
 set(CMAKE_CXX_STANDARD 20)
